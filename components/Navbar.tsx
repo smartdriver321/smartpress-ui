@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
+
 import logo from '../img/logo.png'
 import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar'
 import {
