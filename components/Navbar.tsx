@@ -11,6 +11,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
+import ThemeToggler from './ThemeToggler'
 
 export default function Navbar() {
   return (
@@ -19,25 +20,29 @@ export default function Navbar() {
         <Image src={logo} alt='TraversyPress' width={40} />
       </Link>
 
-      <DropdownMenu>
-        <DropdownMenuTrigger className='focus:outline-none'>
-          <Avatar>
-            <AvatarImage src='https://github.com/shadcn.png' alt='@shadcn' />
-            <AvatarFallback className='text-black'>BT</AvatarFallback>
-          </Avatar>
-        </DropdownMenuTrigger>
+      <div className='flex items-center'>
+        <ThemeToggler />
 
-        <DropdownMenuContent>
-          <DropdownMenuLabel>My Account</DropdownMenuLabel>
-          <DropdownMenuSeparator />
-          <DropdownMenuItem>
-            <Link href='/profile'>Profile</Link>
-          </DropdownMenuItem>
-          <DropdownMenuItem>
-            <Link href='/auth'>Logout</Link>
-          </DropdownMenuItem>
-        </DropdownMenuContent>
-      </DropdownMenu>
+        <DropdownMenu>
+          <DropdownMenuTrigger className='focus:outline-none'>
+            <Avatar>
+              <AvatarImage src='https://github.com/shadcn.png' alt='@shadcn' />
+              <AvatarFallback className='text-black'>BT</AvatarFallback>
+            </Avatar>
+          </DropdownMenuTrigger>
+
+          <DropdownMenuContent>
+            <DropdownMenuLabel>My Account</DropdownMenuLabel>
+            <DropdownMenuSeparator />
+            <DropdownMenuItem>
+              <Link href='/profile'>Profile</Link>
+            </DropdownMenuItem>
+            <DropdownMenuItem>
+              <Link href='/auth'>Logout</Link>
+            </DropdownMenuItem>
+          </DropdownMenuContent>
+        </DropdownMenu>
+      </div>
     </div>
   )
 }
