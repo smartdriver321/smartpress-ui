@@ -1,8 +1,9 @@
 'use client'
 
-import * as z from 'zod'
+import { useRouter } from 'next/navigation'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
+import * as z from 'zod'
 
 import BackButton from '@/components/BackButton'
 import posts from '@/data/posts'
@@ -41,6 +42,7 @@ interface PostEditPageProps {
 }
 
 export default function PostEditPage({ params }: PostEditPageProps) {
+  const router = useRouter()
   const { toast } = useToast()
   const post = posts.find((post) => post.id === params.id)
 
@@ -148,7 +150,10 @@ export default function PostEditPage({ params }: PostEditPageProps) {
             )}
           />
 
-          <Button className='w-full dark:bg-slate-800 dark:text-white'>
+          <Button
+            className='w-full dark:bg-slate-800 dark:text-white'
+            onClick={() => router.push('/posts')}
+          >
             Update Post
           </Button>
         </form>
